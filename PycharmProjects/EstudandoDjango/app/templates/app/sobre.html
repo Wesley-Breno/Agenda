@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}
+  Sobre ∙ Agenda
+{% endblock %}
+
+{% block 'conteudo' %}
+  <h2 style="text-align: center; margin: 50px;">Sobre nosso site</h2>
+
+  <div class="row" style="margin: 50px;">
+    <div class="col-sm-6" style="padding-top: 10px;">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Gerenciamento de contatos</h5>
+          <p class="card-text">
+              Com nosso WebApp você ira poder armazenar os contatos dos seus familiares e outros contatos mais
+              importantes. Sem riscos de perde-los caso haja perda dos contatos no seu SmartPhone.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6" style="padding-top: 10px;">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Atualizações</h5>
+          <p class="card-text">
+              Nosso site sempre esta em constantes atualizações para podermos entregar o melhor desempenho ao usuario,
+              com isso estamos sempre abertos para feedbacks e sugestões de melhoria em nosso site.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6" style="padding-top: 10px;">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Como usar?</h5>
+          <p class="card-text">
+              Site super simples e intuitivo. Basta logar na sua conta (se voce ja tiver uma), ou fazer o seu cadastro e
+              ja estara pronto para usar nossos serviços de agendamento de contatos online.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6" style="padding-top: 10px;">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Quanto custa?</h5>
+          <p class="card-text">
+              Totalmente gratuito!! A unica coisa que queremos é o seu feedback e sugestões para a melhoria deste projeto,
+              que é totalmente gratuito e sem intenções financeiras.
+          </p>
+        </div>
+      </div>
+    </div>
+
+      <small style="margin: auto; padding-top: 25px;">
+          <a href="{% url 'login' %}">Fazer login</a> | <a href="{% url 'cadastro' %}">Fazer cadastro</a>
+      </small>
+  </div>
+{% endblock %}
+
