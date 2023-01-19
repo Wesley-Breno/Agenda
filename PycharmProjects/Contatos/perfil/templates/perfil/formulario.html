@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}
+  {{ adicionar_atualizar|capfirst }} contato
+{% endblock %}
+
+{% block 'conteudo' %}
+<h3 style="text-align: center; margin: 50px;">
+    Preencha os dados para {{ adicionar_atualizar }} o contato
+</h3>
+  <div class="container">
+    <form method="POST" style="margin: 10px;" enctype="multipart/form-data">
+      {% csrf_token %}
+      <table class="table">
+        {{ form }}
+        <tr>
+          <td colspan="2">
+            <button type="submit" class="btn btn-outline-success">Salvar contato</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+{% endblock %}

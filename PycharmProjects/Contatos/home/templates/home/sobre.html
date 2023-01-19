@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}
+    Sobre
+{% endblock %}
+
+{% block 'conteudo' %}
+
+<h1 style="margin: 50px; text-align: center;">
+    Sobre
+</h1>
+
+<div class="row" style="margin: 20px;">
+  <div class="col-sm-6"  style="padding-top: 5px;">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Sobre nosso site</h5>
+        <p class="card-text">
+            Somos um site de agendamento de contatos online. Em nosso site voce podera salvar os contatos dos seus
+            familiares e ate mesmo os mais importantes caso haja a perda dos contatos em seu SmartPhone.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6" style="padding-top: 5px">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Atualizações</h5>
+        <p class="card-text">
+            Sempre estamos em constantes atualizações, mantendo a segurança e colocando sempre o usuario satisfeito com o
+            uso de feedbacks e atualizações semanais do nosso site.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin: 20px;">
+  <div class="col-sm-6" style="padding-top: 5px;">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Como usar?</h5>
+        <p class="card-text">
+            Super simples e pratico! Basta apenas logar em sua conta (se voce ja tiver uma), e
+            adicionar quantos contatos voce quiser. Os contatos serao salvos e permanecerão em nosso site para caso voce
+            queira recupera-los um dia.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6" style="padding-top: 5px">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Quanto custa?</h5>
+        <p class="card-text">Totalmente gratuito! Apenas iremos querer o seu feedback para futuras atualizações para
+        mantermos a qualidade do site e o empenho em nossos projetos.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if user.username %}
+{% else %}
+    <p style="text-align: center;">
+        <a style="padding-left: 27px" href="{% url 'login' %}">Fazer login</a> | <a href="{% url 'cadastro' %}">Fazer cadastro</a>
+    </p>
+{% endif %}
+{% endblock %}

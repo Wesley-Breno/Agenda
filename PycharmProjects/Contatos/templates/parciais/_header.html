@@ -1,0 +1,35 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'home' %}">Agenda</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown" style="">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <strong>≡</strong>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          {% if user.username %}
+          <a class="dropdown-item" href="{% url 'home' %}">Meus contatos</a>
+          <a class="dropdown-item" href="{% url 'adicionar' %}">Adicionar contato</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{% url 'sobre' %}">Sobre</a>
+          <a class="dropdown-item" href="{% url 'logout' %}">Sair</a>
+          {% else %}
+          <a class="dropdown-item" href="{% url 'login' %}">Login</a>
+          <a class="dropdown-item" href="{% url 'cadastro' %}">Cadastro</a>
+          {% endif %}
+        </div>
+      </li>
+    </ul>
+
+    {% if user.username %}
+    <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'busca' %}">
+      <input class="form-control mr-sm-2" type="search" name="busca" value="{{ request.GET.busca }}" placeholder="Nome do contato" aria-label="Search">
+    </form>
+    {% endif %}
+  </div>
+</nav>

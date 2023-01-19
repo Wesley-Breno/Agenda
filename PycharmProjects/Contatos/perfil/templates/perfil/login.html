@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block 'titulo' %}
+    Login
+{% endblock %}
+
+{% block 'conteudo' %}
+<h1 style="text-align: center; margin: 50px;">
+    Preencha seus dados para fazer login
+</h1>
+<form style="margin: 50px;" method="POST">
+  {% csrf_token %}
+  <div class="form-group">
+    <label>Nome de usuario</label>
+    <input type="text" class="form-control" name="nome" value="{{ request.POST.nome }}" placeholder="Coloque seu nome de usuario">
+    <small class="form-text text-muted">Ainda não tem uma conta? <a href="{% url 'cadastro' %}">Clique aqui.</a></small>
+  </div>
+  <div class="form-group">
+    <label>Senha</label>
+    <input type="password" class="form-control" name="senha" placeholder="Coloque sua senha">
+  </div>
+  <button type="submit" class="btn btn-primary">Fazer login</button>
+</form>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block 'titulo' %}
+    Busca
+{% endblock %}
+
+{% block 'conteudo' %}
+    <p class="text-muted" style="margin: 5px;">Logado como: {{ user.username }}</p>
+    {% if tem_pesquisa %}
+        {% for contato in contatos %}
+            <button type="button" class="btn btn-primary btn-light" data-toggle="modal" data-target="#exampleModal{{ contato.id }}" style="margin: 15px;">
+              <strong>{{ contato.nome }} {% if contato.sobrenome %}{{ contato.sobrenome|first }}.{% endif %}</strong>
+              <hr style="margin: 5px;">
+              {{ contato.numero|slice:":8" }}...
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal{{ contato.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{ contato.nome }} {% if contato.sobrenome %}{{ contato.sobrenome }}{% endif %}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    {% if contato.foto %}
+                      <p align="center">
+                        <img src="{{ contato.foto.url }}" width="150px" style="border-radius: 20px;">
+                      </p>
+                    {% endif %}
+                    <hr>
+                    <strong>Sobre</strong><br>
+                    {% if contato.sobre %}{{ contato.sobre }}{% else %}...{% endif %}<br>
+                    <hr>
+                    <strong>Numero</strong><br>
+                    {{ contato.numero }}<br>
+                    <hr>
+                    <strong>Categoria</strong><br>
+                    {{ contato.categoria }}<br>
+                    <hr>
+                    <strong>Data criação</strong><br>
+                    {{ contato.data_criacao }}<br>
+
+                  </div>
+                  <div class="modal-footer">
+                    <a href="{% url 'apagar' contato.id %}"><button type="button" class="btn btn-outline-danger">Excluir</button></a>
+                    <a href="{% url 'atualizar' contato.id %}"><button type="button" class="btn btn-outline-secondary">Atualizar</button></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        {% endfor %}
+    {% else %}
+          <h3 style="text-align: center; margin: 40px;">
+            Você não adicionou nenhum contato "{{ busca }}" ainda.
+          </h3>
+          <p align="center" style="margin-bottom: 20%;">
+            <small>Clique <a href="{% url 'adicionar' %}">aqui</a> para adicionar.</small>
+          </p>
+    {% endif %}
+<div style="margin: 20%"></div>
+{% endblock %}

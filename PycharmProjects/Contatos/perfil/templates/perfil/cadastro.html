@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block 'titulo' %}
+  Cadastro
+{% endblock %}
+
+{% block 'conteudo' %}
+<h1 style="text-align: center; margin: 50px;">
+  Preencha os dados para criar uma conta
+</h1>
+<form style="margin: 50px;" method="POST">
+  {% csrf_token %}
+  <div class="form-group">
+    <label>Nome de usuario</label>
+    <input type="text" class="form-control" name="nome" value="{{ request.POST.nome }}" placeholder="Digite o seu nome de usuario">
+    <small class="form-text text-muted">Ja tem uma conta? <a href="{% url 'login' %}">Clique aqui.</a></small>
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control" name="email" value="{{ request.POST.email }}" placeholder="Digite o seu email">
+  </div>
+  <div class="form-group">
+    <label>Senha</label>
+    <input type="password" class="form-control" name="senha" placeholder="Digite sua senha">
+  </div>
+  <div class="form-group">
+    <label>Confirme a senha</label>
+    <input type="password" class="form-control" name="senha2" placeholder="Confirme sua senha">
+  </div>
+  <button type="submit" class="btn btn-primary">Criar conta</button>
+</form>
+{% endblock %}
