@@ -2,8 +2,6 @@
 
 <img src="images_readme/agenda.png">
 
-<p align="center">Clique aqui para acessar o <a href="https://web-production-97cd.up.railway.app/sobre/">projeto</a>.</p>
-
 <h2 align="center">Resumo</h2>
 <p align="center">
   Projeto de uma agenda de contatos utilizando o framework Django. Na agenda, é possível registrar informações como nome, sobrenome, número de telefone e descrição do contato. Além disso, foi implementada a funcionalidade de cadastro e login, permitindo que o usuário adicione seus contatos de maneira segura e possa recuperá-los caso haja perda dos dados em seu smartphone.
